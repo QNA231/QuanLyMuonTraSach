@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace QuanLyMuonTraSach
 {
     public partial class Home : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-1600EKM7\\SQLEXPRESS;Initial Catalog=QuanLyMuonTraSach;Persist Security Info=True;User ID=sa;Trust Server Certificate=True");
+        SqlConnection con = new SqlConnection(Connection.ConString);
         public Home()
         {
             InitializeComponent();
@@ -16,6 +16,12 @@ namespace QuanLyMuonTraSach
         {
             Sach formSach = new Sach();
             formSach.Show();
+        }
+
+        private void DocGiaNav_Click(object sender, EventArgs e)
+        {
+            DocGia formDocGia = new DocGia();
+            formDocGia.Show();
         }
     }
 }

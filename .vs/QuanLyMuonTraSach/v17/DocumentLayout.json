@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|d:\\c#\\manh_btl\\quanlymuontrasach\\quanlymuontrasach\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|solutionrelative:quanlymuontrasach\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|d:\\c#\\manh_btl\\quanlymuontrasach\\quanlymuontrasach\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|solutionrelative:quanlymuontrasach\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|d:\\c#\\manh_btl\\quanlymuontrasach\\quanlymuontrasach\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|D:\\C#\\manh_btl\\QuanLyMuonTraSach\\quanlymuontrasach\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|solutionrelative:quanlymuontrasach\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|d:\\c#\\manh_btl\\quanlymuontrasach\\quanlymuontrasach\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|d:\\c#\\manh_btl\\quanlymuontrasach\\quanlymuontrasach\\docgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|solutionrelative:quanlymuontrasach\\docgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|D:\\C#\\manh_btl\\QuanLyMuonTraSach\\quanlymuontrasach\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|solutionrelative:quanlymuontrasach\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|d:\\c#\\manh_btl\\quanlymuontrasach\\quanlymuontrasach\\docgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E512FB9-0E49-4D75-B331-4511E03A05C9}|QuanLyMuonTraSach\\QuanLyMuonTraSach.csproj|solutionrelative:quanlymuontrasach\\docgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +33,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "DockedWidth": 215,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +62,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "DocGia.cs",
+              "DocumentMoniker": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\DocGia.cs",
+              "RelativeDocumentMoniker": "QuanLyMuonTraSach\\DocGia.cs",
+              "ToolTip": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\DocGia.cs",
+              "RelativeToolTip": "QuanLyMuonTraSach\\DocGia.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:36:52.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DocGia.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\DocGia.cs",
+              "RelativeDocumentMoniker": "QuanLyMuonTraSach\\DocGia.cs",
+              "ToolTip": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\DocGia.cs [Design]",
+              "RelativeToolTip": "QuanLyMuonTraSach\\DocGia.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T17:32:12.913Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Sach.cs",
+              "DocumentMoniker": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\Sach.cs",
+              "RelativeDocumentMoniker": "QuanLyMuonTraSach\\Sach.cs",
+              "ToolTip": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\Sach.cs",
+              "RelativeToolTip": "QuanLyMuonTraSach\\Sach.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAAwJEAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:17:17.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Sach.cs [Design]",
               "DocumentMoniker": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\Sach.cs",
               "RelativeDocumentMoniker": "QuanLyMuonTraSach\\Sach.cs",
@@ -62,20 +112,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Home.cs",
               "DocumentMoniker": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\Home.cs",
               "RelativeDocumentMoniker": "QuanLyMuonTraSach\\Home.cs",
               "ToolTip": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\Home.cs",
               "RelativeToolTip": "QuanLyMuonTraSach\\Home.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-10T15:35:50.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Home.cs [Design]",
               "DocumentMoniker": "D:\\C#\\manh_btl\\QuanLyMuonTraSach\\QuanLyMuonTraSach\\Home.cs",
               "RelativeDocumentMoniker": "QuanLyMuonTraSach\\Home.cs",
@@ -88,7 +138,7 @@
           ]
         },
         {
-          "DockedWidth": 14,
+          "DockedWidth": 185,
           "SelectedChildIndex": -1,
           "Children": [
             {

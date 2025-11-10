@@ -33,12 +33,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTacGia = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridSach = new System.Windows.Forms.DataGridView();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSach)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTenSach
@@ -54,19 +58,19 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(177, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 15);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tên sách";
+            this.label1.Text = "Tên sách:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(177, 123);
+            this.label2.Location = new System.Drawing.Point(187, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.Size = new System.Drawing.Size(50, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Tác giả";
+            this.label2.Text = "Tác giả:";
             // 
             // txtTacGia
             // 
@@ -85,36 +89,77 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Danh sách các đầu sách";
             // 
-            // dataGridView1
+            // gridSach
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridSach.AllowUserToResizeRows = false;
+            this.gridSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSach,
             this.TenSach,
             this.TacGia,
             this.TrangThai});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 171);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(601, 196);
-            this.dataGridView1.TabIndex = 5;
+            this.gridSach.Location = new System.Drawing.Point(12, 216);
+            this.gridSach.Name = "gridSach";
+            this.gridSach.Size = new System.Drawing.Size(601, 196);
+            this.gridSach.TabIndex = 5;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(52, 167);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(96, 24);
+            this.btnThem.TabIndex = 6;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(183, 167);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(96, 24);
+            this.btnSua.TabIndex = 7;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Location = new System.Drawing.Point(459, 167);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(96, 24);
+            this.btnLuu.TabIndex = 9;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(321, 167);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(96, 24);
+            this.btnXoa.TabIndex = 8;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
             // MaSach
             // 
+            this.MaSach.DataPropertyName = "MaSach";
             this.MaSach.HeaderText = "Mã sách";
             this.MaSach.Name = "MaSach";
             // 
             // TenSach
             // 
+            this.TenSach.DataPropertyName = "TenSach";
             this.TenSach.HeaderText = "Tên sách";
             this.TenSach.Name = "TenSach";
             // 
             // TacGia
             // 
+            this.TacGia.DataPropertyName = "TacGia";
             this.TacGia.HeaderText = "Tác giả";
             this.TacGia.Name = "TacGia";
             // 
             // TrangThai
             // 
+            this.TrangThai.DataPropertyName = "TrangThai";
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.Name = "TrangThai";
             // 
@@ -122,8 +167,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 379);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(625, 424);
+            this.Controls.Add(this.btnLuu);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.gridSach);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTacGia);
@@ -131,7 +180,7 @@
             this.Controls.Add(this.txtTenSach);
             this.Name = "Sach";
             this.Text = "Sach";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +193,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTacGia;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridSach;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
