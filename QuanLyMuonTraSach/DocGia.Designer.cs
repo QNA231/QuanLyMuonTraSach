@@ -47,9 +47,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(153, 109);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(144, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(46, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Họ tên:";
             // 
@@ -57,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(152, 35);
+            this.label1.Location = new System.Drawing.Point(152, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(241, 24);
             this.label1.TabIndex = 1;
@@ -65,7 +66,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(206, 106);
+            this.txtHoTen.Location = new System.Drawing.Point(206, 53);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(187, 20);
             this.txtHoTen.TabIndex = 1;
@@ -73,15 +74,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(122, 149);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(108, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Số điện thoại:";
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(206, 146);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(206, 93);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(187, 20);
             this.txtSoDienThoai.TabIndex = 2;
@@ -94,7 +96,7 @@
             this.MaDocGia,
             this.HoTen,
             this.SoDienThoai});
-            this.gridDocGia.Location = new System.Drawing.Point(12, 249);
+            this.gridDocGia.Location = new System.Drawing.Point(12, 196);
             this.gridDocGia.Name = "gridDocGia";
             this.gridDocGia.Size = new System.Drawing.Size(515, 150);
             this.gridDocGia.TabIndex = 3;
@@ -119,7 +121,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(52, 188);
+            this.btnThem.Location = new System.Drawing.Point(52, 135);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(96, 24);
             this.btnThem.TabIndex = 4;
@@ -128,7 +130,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(171, 188);
+            this.btnSua.Location = new System.Drawing.Point(171, 135);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(96, 24);
             this.btnSua.TabIndex = 5;
@@ -137,7 +139,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(291, 188);
+            this.btnXoa.Location = new System.Drawing.Point(291, 135);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(96, 24);
             this.btnXoa.TabIndex = 6;
@@ -146,7 +148,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(411, 188);
+            this.btnLuu.Location = new System.Drawing.Point(411, 135);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(96, 24);
             this.btnLuu.TabIndex = 7;
@@ -157,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 411);
+            this.ClientSize = new System.Drawing.Size(539, 358);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
@@ -169,6 +171,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "DocGia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DocGia";
             ((System.ComponentModel.ISupportInitialize)(this.gridDocGia)).EndInit();
             this.ResumeLayout(false);

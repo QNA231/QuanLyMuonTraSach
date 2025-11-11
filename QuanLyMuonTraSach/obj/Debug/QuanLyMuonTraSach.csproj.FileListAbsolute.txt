@@ -194,3 +194,5 @@ D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMu.0ADF5A19.Up2Date
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.exe
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.pdb
+D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.MuonSach.resources
+D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.TraSach.resources
