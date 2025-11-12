@@ -55,9 +55,9 @@
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(236, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 24);
+            this.label1.Size = new System.Drawing.Size(234, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tạo Phiếu Mượn Sách";
+            this.label1.Text = "Tạo phiếu mượn sách";
             // 
             // groupBox1
             // 
@@ -154,6 +154,7 @@
             // dgvGioSach
             // 
             this.dgvGioSach.AllowUserToAddRows = false;
+            this.dgvGioSach.AllowUserToDeleteRows = false;
             this.dgvGioSach.AllowUserToResizeRows = false;
             this.dgvGioSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGioSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -200,6 +201,7 @@
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // MuonSach
             // 

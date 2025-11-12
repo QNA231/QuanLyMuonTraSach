@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using QuanLyMuonTraSach.Helpers;
+using System;
 using System.Data;
-using Microsoft.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuanLyMuonTraSach
@@ -11,6 +13,7 @@ namespace QuanLyMuonTraSach
         private string formMode = "default";
         private int? selectedMaSach = null;
         private DataTable dtSach;
+        private string placeholderTimKiem = "Nhập để tìm kiếm...";
 
         public Sach()
         {
@@ -30,6 +33,8 @@ namespace QuanLyMuonTraSach
         {
             LoadDataFromDB();
             SetFormState("default");
+            txtTimKiem.Text = placeholderTimKiem;
+            txtTimKiem.ForeColor = Color.Gray;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -112,6 +117,40 @@ namespace QuanLyMuonTraSach
             {
                 MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            SetFormState("default");
+        }
+
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == placeholderTimKiem)
+            {
+                txtTimKiem.Text = "";
+                txtTimKiem.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTimKiem.Text))
+            {
+                txtTimKiem.Text = placeholderTimKiem;
+                txtTimKiem.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtTimKiem.Text;
+            if (searchText == placeholderTimKiem)
+            {
+                searchText = "";
+            }
+
+            SearchHelper.ApplyFilter(dtSach, searchText, "TenSach", "TacGia", "TrangThai");
         }
 
         private void GridSach_SelectionChanged(object sender, EventArgs e)

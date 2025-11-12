@@ -274,7 +274,7 @@ namespace QuanLyMuonTraSach
                     adapter.SelectCommand.Parameters.AddWithValue("@MaDocGia", maDocGia);
                     adapter.SelectCommand.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuMuon.Borrowing);
                     adapter.Fill(dt);
-
+                    dgvPhieuMuon.AutoGenerateColumns = false;
                     dgvPhieuMuon.DataSource = dt;
                 }
             }
@@ -304,7 +304,7 @@ namespace QuanLyMuonTraSach
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
                     adapter.SelectCommand.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
                     adapter.Fill(dt);
-
+                    dgvChiTiet.AutoGenerateColumns = false;
                     dgvChiTiet.DataSource = dt;
                 }
             }

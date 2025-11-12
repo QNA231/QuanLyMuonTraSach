@@ -39,11 +39,11 @@
             this.NgayHenTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvChiTiet = new System.Windows.Forms.DataGridView();
+            this.btnXacNhanTra = new System.Windows.Forms.Button();
             this.MaChiTietPhieuMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnXacNhanTra = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuMuon)).BeginInit();
@@ -57,9 +57,9 @@
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(234, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 24);
+            this.label1.Size = new System.Drawing.Size(253, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Trả Sách Và Xem Chi Tiết";
+            this.label1.Text = "Trả sách và xem chi tiết";
             // 
             // groupBox1
             // 
@@ -174,10 +174,20 @@
             this.dgvChiTiet.Size = new System.Drawing.Size(692, 179);
             this.dgvChiTiet.TabIndex = 0;
             // 
+            // btnXacNhanTra
+            // 
+            this.btnXacNhanTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhanTra.Location = new System.Drawing.Point(451, 479);
+            this.btnXacNhanTra.Name = "btnXacNhanTra";
+            this.btnXacNhanTra.Size = new System.Drawing.Size(256, 36);
+            this.btnXacNhanTra.TabIndex = 4;
+            this.btnXacNhanTra.Text = "Xác nhận Trả (Sách đã chọn)";
+            this.btnXacNhanTra.UseVisualStyleBackColor = true;
+            // 
             // MaChiTietPhieuMuon
             // 
             this.MaChiTietPhieuMuon.DataPropertyName = "MaChiTietPhieuMuon";
-            this.MaChiTietPhieuMuon.HeaderText = "ID";
+            this.MaChiTietPhieuMuon.HeaderText = "Mã chi tiết phiếu mượn";
             this.MaChiTietPhieuMuon.Name = "MaChiTietPhieuMuon";
             this.MaChiTietPhieuMuon.ReadOnly = true;
             this.MaChiTietPhieuMuon.Visible = false;
@@ -204,16 +214,6 @@
             this.NgayTra.Name = "NgayTra";
             this.NgayTra.ReadOnly = true;
             this.NgayTra.Width = 150;
-            // 
-            // btnXacNhanTra
-            // 
-            this.btnXacNhanTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhanTra.Location = new System.Drawing.Point(451, 479);
-            this.btnXacNhanTra.Name = "btnXacNhanTra";
-            this.btnXacNhanTra.Size = new System.Drawing.Size(256, 36);
-            this.btnXacNhanTra.TabIndex = 4;
-            this.btnXacNhanTra.Text = "Xác nhận Trả (Sách đã chọn)";
-            this.btnXacNhanTra.UseVisualStyleBackColor = true;
             // 
             // TraSach
             // 

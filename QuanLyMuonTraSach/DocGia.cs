@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using QuanLyMuonTraSach.Helpers;
+using System;
 using System.Data;
-using Microsoft.Data.SqlClient;
+using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace QuanLyMuonTraSach
@@ -11,6 +14,7 @@ namespace QuanLyMuonTraSach
         private string formMode = "default";
         private int? selectedMaDocGia = null;
         private DataTable dtDocGia;
+        private string placeholderTimKiem = "Nhập để tìm kiếm...";
 
         public DocGia()
         {
@@ -21,6 +25,8 @@ namespace QuanLyMuonTraSach
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            this.txtTimKiem.Enter += new System.EventHandler(this.txtTimKiem_Enter);
+            this.txtTimKiem.Leave += new System.EventHandler(this.txtTimKiem_Leave);
 
             this.gridDocGia.SelectionChanged += new System.EventHandler(this.GridDocGia_SelectionChanged);
         }
@@ -31,6 +37,8 @@ namespace QuanLyMuonTraSach
         {
             LoadDataFromDB();
             SetFormState("default");
+            txtTimKiem.Text = placeholderTimKiem;
+            txtTimKiem.ForeColor = Color.Gray; 
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -77,6 +85,21 @@ namespace QuanLyMuonTraSach
                 txtHoTen.Focus();
                 return;
             }
+            string soDienThoai = txtSoDienThoai.Text.Trim();
+            if (string.IsNullOrWhiteSpace(soDienThoai))
+            {
+                MessageBox.Show("Số điện thoại không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSoDienThoai.Focus();
+                return;
+            }
+            string phonePattern = @"^0\d{9}$";
+
+            if (!Regex.IsMatch(soDienThoai, phonePattern))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ.\nPhải có đúng 10 chữ số và bắt đầu bằng số 0.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSoDienThoai.Focus();
+                return;
+            }
 
             // --- 2. Xử lý Lưu (Thêm hoặc Sửa) vào CSDL ---
             try
@@ -84,14 +107,14 @@ namespace QuanLyMuonTraSach
                 if (formMode == "add")
                 {
                     // Gọi hàm INSERT 
-                    InsertDocGiaToDB(txtHoTen.Text, txtSoDienThoai.Text);
+                    InsertDocGiaToDB(txtHoTen.Text, soDienThoai);
                 }
                 else if (formMode == "edit")
                 {
                     // Gọi hàm UPDATE 
                     if (selectedMaDocGia.HasValue)
                     {
-                        UpdateDocGiaInDB(selectedMaDocGia.Value, txtHoTen.Text, txtSoDienThoai.Text);
+                        UpdateDocGiaInDB(selectedMaDocGia.Value, txtHoTen.Text, soDienThoai);
                     }
                 }
 
@@ -103,6 +126,40 @@ namespace QuanLyMuonTraSach
             {
                 MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            SetFormState("default");
+        }
+
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == placeholderTimKiem)
+            {
+                txtTimKiem.Text = "";
+                txtTimKiem.ForeColor = Color.Black; 
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTimKiem.Text))
+            {
+                txtTimKiem.Text = placeholderTimKiem;
+                txtTimKiem.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtTimKiem.Text;
+            if (searchText == placeholderTimKiem)
+            {
+                searchText = "";
+            }
+
+            SearchHelper.ApplyFilter(dtDocGia, searchText, "HoTen", "SoDienThoai");
         }
 
         private void GridDocGia_SelectionChanged(object sender, EventArgs e)

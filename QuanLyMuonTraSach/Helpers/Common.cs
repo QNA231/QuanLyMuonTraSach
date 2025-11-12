@@ -2,8 +2,8 @@
 {
     public static class Connection
     {
-        public static string ConString { get; set; } = "Data Source=LAPTOP-1600EKM7\\SQLEXPRESS;Initial Catalog=QuanLyMuonTraSach;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-        //public static string ConString { get; set; } = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=QuanLyMuonTraSach;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        //public static string ConString { get; set; } = "Data Source=LAPTOP-1600EKM7\\SQLEXPRESS;Initial Catalog=QuanLyMuonTraSach;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        public static string ConString { get; set; } = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=QuanLyMuonTraSach;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
     }
 
     public static class TrangThaiSach

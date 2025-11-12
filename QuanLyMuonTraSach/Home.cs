@@ -7,9 +7,6 @@ namespace QuanLyMuonTraSach
 {
     public partial class Home : Form
     {
-        // Giả sử bạn có class Connection chứa chuỗi kết nối
-        SqlConnection con = new SqlConnection(Connection.ConString);
-
         public Home()
         {
             InitializeComponent();

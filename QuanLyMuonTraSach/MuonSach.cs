@@ -35,7 +35,6 @@ namespace QuanLyMuonTraSach
 
             // Khởi tạo giỏ hàng
             gioHang = new BindingList<SachGioHang>();
-            dgvGioSach.AutoGenerateColumns = false;
             dgvGioSach.DataSource = gioHang;
 
             ResetForm();

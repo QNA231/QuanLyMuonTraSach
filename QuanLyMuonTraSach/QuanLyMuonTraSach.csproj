@@ -173,6 +173,7 @@
       <DependentUpon>DocGia.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SachGioHang.cs" />
+    <Compile Include="Helpers\SearchHelper.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
