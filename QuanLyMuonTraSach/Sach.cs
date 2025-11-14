@@ -46,6 +46,13 @@ namespace QuanLyMuonTraSach
         {
             if (gridSach.SelectedRows.Count > 0 && selectedMaSach.HasValue)
             {
+                string trangThai = gridSach.SelectedRows[0].Cells["TrangThai"].Value.ToString();
+
+                if (trangThai == TrangThaiSach.Borrow)
+                {
+                    MessageBox.Show("Không thể sửa sách đang được mượn. Vui lòng chờ độc giả trả sách.", "Lỗi Ràng Buộc", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 SetFormState("edit");
             }
             else
@@ -58,6 +65,14 @@ namespace QuanLyMuonTraSach
         {
             if (gridSach.SelectedRows.Count > 0 && selectedMaSach.HasValue)
             {
+                string trangThai = gridSach.SelectedRows[0].Cells["TrangThai"].Value.ToString();
+
+                if (trangThai == TrangThaiSach.Borrow) 
+                {
+                    MessageBox.Show("Không thể xóa sách đang được mượn. Vui lòng chờ độc giả trả sách.", "Lỗi Ràng Buộc", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; 
+                }
+
                 var result = MessageBox.Show("Bạn có chắc chắn muốn xóa cuốn sách này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)

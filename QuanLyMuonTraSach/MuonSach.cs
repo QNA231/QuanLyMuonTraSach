@@ -24,6 +24,7 @@ namespace QuanLyMuonTraSach
             this.btnThemSachVaoGio.Click += new System.EventHandler(this.btnThemSachVaoGio_Click);
             this.btnXacNhanMuon.Click += new System.EventHandler(this.btnXacNhanMuon_Click);
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.btnXoaKhoiGio.Click += new System.EventHandler(this.btnXoaKhoiGio_Click);
         }
 
         // --- CÁC HÀM XỬ LÝ SỰ KIỆN ---
@@ -98,6 +99,13 @@ namespace QuanLyMuonTraSach
             int maDocGia = (int)cbDocGia.SelectedValue;
             DateTime ngayMuon = DateTime.Now.Date;
             DateTime ngayHenTra = ngayMuon.AddDays(SO_NGAY_MUON_TOI_DA);
+            string errorMessage = KiemTraDieuKienMuon(maDocGia, gioHang.Count);
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                MessageBox.Show(errorMessage, "Không Thể Mượn Sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
 
             // --- 2. Bắt đầu GIAO DỊCH (TRANSACTION) ---
             SqlTransaction transaction = null;
@@ -170,6 +178,21 @@ namespace QuanLyMuonTraSach
             }
         }
 
+        private void btnXoaKhoiGio_Click(object sender, EventArgs e)
+        {
+            if (dgvGioSach.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một cuốn sách trong giỏ để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var sachCanXoa = (SachGioHang)dgvGioSach.SelectedRows[0].DataBoundItem;
+
+            if (sachCanXoa != null)
+            {
+                gioHang.Remove(sachCanXoa);
+            }
+        }
+
         // --- CÁC HÀM HỖ TRỢ (HELPER FUNCTIONS) ---
 
         /// <summary>
@@ -235,6 +258,89 @@ namespace QuanLyMuonTraSach
             lblThongTinSach.Text = "";
             gioHang.Clear(); // Xóa sạch giỏ hàng
             cbDocGia.Focus();
+        }
+
+        /// <summary>
+        /// Kiểm tra xem độc giả có đủ điều kiện mượn sách không.
+        /// Trả về MỘT chuỗi lỗi nếu không hợp lệ, hoặc trả về string.Empty nếu hợp lệ.
+        /// </summary>
+        private string KiemTraDieuKienMuon(int maDocGia, int soSachSapMuon)
+        {
+            // Quy định của thư viện
+            const int MAX_SACH_DUOC_MUON = 5;
+
+            try
+            {
+                using (SqlConnection c = new SqlConnection(Connection.ConString))
+                {
+                    c.Open();
+
+                    // 1. Kiểm tra sách trễ hạn (chưa trả VÀ đã quá ngày hẹn)
+                    string queryTreHan = @"
+                        SELECT COUNT(CT.MaSach) 
+                        FROM PhieuMuon PM
+                        JOIN ChiTietPhieuMuon CT ON PM.MaPhieuMuon = CT.MaPhieuMuon
+                        WHERE PM.MaDocGia = @MaDocGia 
+                          AND CT.NgayTra IS NULL 
+                          AND PM.NgayHenTra < GETDATE()";
+
+                    using (SqlCommand cmd = new SqlCommand(queryTreHan, c))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                        int soSachTre = (int)cmd.ExecuteScalar();
+                        if (soSachTre > 0)
+                        {
+                            return $"Độc giả này đang có {soSachTre} sách bị trễ hạn. Vui lòng trả sách cũ trước.";
+                        }
+                    }
+
+                    // 2. Kiểm tra nợ phạt (chưa đóng)
+                    string queryPhat = @"
+                        SELECT COUNT(PP.MaPhieuPhat)
+                        FROM PhieuPhat PP
+                        JOIN ChiTietPhieuMuon CT ON PP.MaChiTietPhieuMuon = CT.MaChiTietPhieuMuon
+                        JOIN PhieuMuon PM ON CT.MaPhieuMuon = PM.MaPhieuMuon
+                        WHERE PM.MaDocGia = @MaDocGia AND PP.TrangThai = @TrangThaiPhat";
+
+                    using (SqlCommand cmd = new SqlCommand(queryPhat, c))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                        cmd.Parameters.AddWithValue("@TrangThaiPhat", TrangThaiPhieuPhat.NotPaid);
+                        int soNoPhat = (int)cmd.ExecuteScalar();
+                        if (soNoPhat > 0)
+                        {
+                            return $"Độc giả này đang có {soNoPhat} khoản phạt chưa thanh toán.";
+                        }
+                    }
+
+                    // 3. Kiểm tra tổng số lượng sách mượn
+                    string queryTongSach = @"
+                        SELECT COUNT(CT.MaSach) 
+                        FROM PhieuMuon PM
+                        JOIN ChiTietPhieuMuon CT ON PM.MaPhieuMuon = CT.MaPhieuMuon
+                        WHERE PM.MaDocGia = @MaDocGia AND CT.NgayTra IS NULL";
+
+                    using (SqlCommand cmd = new SqlCommand(queryTongSach, c))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                        int soSachHienTai = (int)cmd.ExecuteScalar();
+
+                        if (soSachHienTai + soSachSapMuon > MAX_SACH_DUOC_MUON)
+                        {
+                            return $"Độc giả chỉ được mượn tối đa {MAX_SACH_DUOC_MUON} cuốn.\n" +
+                                   $"Họ đang mượn {soSachHienTai} và định mượn thêm {soSachSapMuon}.";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi, chặn giao dịch để đảm bảo an toàn
+                return "Lỗi khi kiểm tra ràng buộc: " + ex.Message;
+            }
+
+            // Nếu qua được cả 3 bước, trả về rỗng (Hợp lệ)
+            return string.Empty;
         }
     }
 }

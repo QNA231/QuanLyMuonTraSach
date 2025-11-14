@@ -43,6 +43,7 @@
             this.ColTenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnXacNhanMuon = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.btnXoaKhoiGio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -203,12 +204,22 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // btnXoaKhoiGio
+            // 
+            this.btnXoaKhoiGio.Location = new System.Drawing.Point(240, 421);
+            this.btnXoaKhoiGio.Name = "btnXoaKhoiGio";
+            this.btnXoaKhoiGio.Size = new System.Drawing.Size(96, 24);
+            this.btnXoaKhoiGio.TabIndex = 6;
+            this.btnXoaKhoiGio.Text = "Xóa khỏi giỏ";
+            this.btnXoaKhoiGio.UseVisualStyleBackColor = true;
+            // 
             // MuonSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 455);
             this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnXoaKhoiGio);
             this.Controls.Add(this.btnXacNhanMuon);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -245,5 +256,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColMaSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTenSach;
         private System.Windows.Forms.ComboBox cbTenSach;
+        private System.Windows.Forms.Button btnXoaKhoiGio;
     }
 }

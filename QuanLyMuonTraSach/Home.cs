@@ -11,14 +11,9 @@ namespace QuanLyMuonTraSach
         {
             InitializeComponent();
 
-            // Đăng ký sự kiện
             this.Load += new System.EventHandler(this.Home_Load);
 
-            // Sự kiện này xảy ra MỖI KHI form được focus
-            // Giúp dashboard tự động làm mới khi bạn đóng các form con
             this.Activated += new System.EventHandler(this.Home_Activated);
-
-            // Đăng ký 2 nút mới
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnThuPhat.Click += new System.EventHandler(this.btnThuPhat_Click);
         }
