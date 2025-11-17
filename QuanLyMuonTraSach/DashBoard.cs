@@ -5,27 +5,27 @@ using System.Windows.Forms;
 
 namespace QuanLyMuonTraSach
 {
-    public partial class Home : Form
+    public partial class DashBoard : Form
     {
-        public Home()
+        public DashBoard()
         {
             InitializeComponent();
 
-            this.Load += new System.EventHandler(this.Home_Load);
+            this.Load += new System.EventHandler(this.DashBoard_Load);
 
-            this.Activated += new System.EventHandler(this.Home_Activated);
+            this.Activated += new System.EventHandler(this.DashBoard_Activated);
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnThuPhat.Click += new System.EventHandler(this.btnThuPhat_Click);
         }
 
         // --- SỰ KIỆN TẢI DỮ LIỆU ---
 
-        private void Home_Load(object sender, EventArgs e)
+        private void DashBoard_Load(object sender, EventArgs e)
         {
             LoadAllDashboardData();
         }
 
-        private void Home_Activated(object sender, EventArgs e)
+        private void DashBoard_Activated(object sender, EventArgs e)
         {
             LoadAllDashboardData();
         }

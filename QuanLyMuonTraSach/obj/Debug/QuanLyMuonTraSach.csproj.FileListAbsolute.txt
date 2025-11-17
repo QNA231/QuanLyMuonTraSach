@@ -2,7 +2,6 @@ D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\bin\Debug\QuanLyMuonTraSach.e
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\bin\Debug\QuanLyMuonTraSach.exe
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\bin\Debug\QuanLyMuonTraSach.pdb
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.csproj.AssemblyReference.cache
-D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Home.resources
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Properties.Resources.resources
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Sach.resources
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.csproj.GenerateResource.cache
@@ -198,3 +197,5 @@ D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMu.0ADF5A19
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.exe
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.pdb
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.exe.config
+D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.DashBoard.resources
+D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Welcome.resources

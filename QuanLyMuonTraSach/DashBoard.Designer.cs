@@ -1,6 +1,6 @@
 ﻿namespace QuanLyMuonTraSach
 {
-    partial class Home
+    partial class DashBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -417,7 +417,7 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // Home
+            // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -426,7 +426,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Home";
+            this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang Chủ - Quản Lý Thư Viện";
             this.menuStrip1.ResumeLayout(false);
