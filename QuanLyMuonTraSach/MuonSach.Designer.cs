@@ -60,7 +60,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(650, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tạo Phiếu Mượn Sách";
+            this.label1.Text = "TẠO PHIẾU MƯỢN SÁCH";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
@@ -128,7 +128,7 @@
             this.lblThongTinSach.ForeColor = System.Drawing.Color.Blue;
             this.lblThongTinSach.Location = new System.Drawing.Point(110, 59);
             this.lblThongTinSach.Name = "lblThongTinSach";
-            this.lblThongTinSach.Size = new System.Drawing.Size(141, 15);
+            this.lblThongTinSach.Size = new System.Drawing.Size(138, 15);
             this.lblThongTinSach.TabIndex = 3;
             this.lblThongTinSach.Text = "(Thông tin sách kiểm tra)";
             // 
@@ -178,7 +178,7 @@
             this.dgvGioSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;

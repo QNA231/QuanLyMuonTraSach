@@ -69,7 +69,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(776, 65);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Quản lý Mượn Trả Sách";
+            this.label2.Text = "QUẢN LÝ MƯỢN TRẢ SÁCH";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Welcome
