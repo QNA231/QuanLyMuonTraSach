@@ -12,7 +12,7 @@ namespace QuanLyMuonTraSach
     {
         SqlConnection con = new SqlConnection(Connection.ConString);
         private string formMode = "default";
-        private int? selectedMaDocGia = null;
+        private int? selectedId = null; 
         private DataTable dtDocGia;
         private string placeholderTimKiem = "Nhập để tìm kiếm...";
 
@@ -27,7 +27,8 @@ namespace QuanLyMuonTraSach
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             this.txtTimKiem.Enter += new System.EventHandler(this.txtTimKiem_Enter);
             this.txtTimKiem.Leave += new System.EventHandler(this.txtTimKiem_Leave);
-
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             this.gridDocGia.SelectionChanged += new System.EventHandler(this.GridDocGia_SelectionChanged);
         }
 
@@ -38,7 +39,7 @@ namespace QuanLyMuonTraSach
             LoadDataFromDB();
             SetFormState("default");
             txtTimKiem.Text = placeholderTimKiem;
-            txtTimKiem.ForeColor = Color.Gray; 
+            txtTimKiem.ForeColor = Color.Gray;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace QuanLyMuonTraSach
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (gridDocGia.SelectedRows.Count > 0 && selectedMaDocGia.HasValue)
+            if (gridDocGia.SelectedRows.Count > 0 && selectedId.HasValue)
             {
                 SetFormState("edit");
             }
@@ -60,14 +61,13 @@ namespace QuanLyMuonTraSach
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (gridDocGia.SelectedRows.Count > 0 && selectedMaDocGia.HasValue)
+            if (gridDocGia.SelectedRows.Count > 0 && selectedId.HasValue)
             {
                 var result = MessageBox.Show("Bạn có chắc chắn muốn xóa độc giả này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    // Gọi hàm xóa 
-                    DeleteDocGiaFromDB(selectedMaDocGia.Value);
+                    DeleteDocGiaFromDB(selectedId.Value);
                 }
             }
             else
@@ -79,10 +79,18 @@ namespace QuanLyMuonTraSach
         private void btnLuu_Click(object sender, EventArgs e)
         {
             // --- 1. Kiểm tra dữ liệu (Validate) ---
+
+            if (formMode == "add" && string.IsNullOrWhiteSpace(txtMaDocGia.Text))
+            {
+                MessageBox.Show("Mã độc giả không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMaDocGia.Focus();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtHoTen.Text))
             {
-                MessageBox.Show("Họ tên không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtHoTen.Focus();
+                MessageBox.Show("Tên độc giả không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtHoTen.Focus(); 
                 return;
             }
             string soDienThoai = txtSoDienThoai.Text.Trim();
@@ -106,15 +114,15 @@ namespace QuanLyMuonTraSach
             {
                 if (formMode == "add")
                 {
-                    // Gọi hàm INSERT 
-                    InsertDocGiaToDB(txtHoTen.Text, soDienThoai);
+                    // Gọi hàm INSERT với MaDocGia, Tên (từ txtHoTen), SĐT
+                    InsertDocGiaToDB(txtMaDocGia.Text, txtHoTen.Text, soDienThoai);
                 }
                 else if (formMode == "edit")
                 {
-                    // Gọi hàm UPDATE 
-                    if (selectedMaDocGia.HasValue)
+                    // Gọi hàm UPDATE với Id 
+                    if (selectedId.HasValue)
                     {
-                        UpdateDocGiaInDB(selectedMaDocGia.Value, txtHoTen.Text, soDienThoai);
+                        UpdateDocGiaInDB(selectedId.Value, txtHoTen.Text, soDienThoai);
                     }
                 }
 
@@ -122,9 +130,22 @@ namespace QuanLyMuonTraSach
                 LoadDataFromDB();
                 SetFormState("default");
             }
+            // Bắt lỗi SQL cụ thể (ví dụ: trùng lặp MaDocGia)
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627 || ex.Number == 2601) // Lỗi vi phạm UNIQUE constraint
+                {
+                    MessageBox.Show($"Mã độc giả '{txtMaDocGia.Text}' đã tồn tại. Vui lòng nhập mã khác.", "Lỗi Trùng Lặp", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMaDocGia.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi khi lưu dữ liệu CSDL: " + ex.Message, "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi Chung", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -138,7 +159,7 @@ namespace QuanLyMuonTraSach
             if (txtTimKiem.Text == placeholderTimKiem)
             {
                 txtTimKiem.Text = "";
-                txtTimKiem.ForeColor = Color.Black; 
+                txtTimKiem.ForeColor = Color.Black;
             }
         }
 
@@ -159,7 +180,7 @@ namespace QuanLyMuonTraSach
                 searchText = "";
             }
 
-            SearchHelper.ApplyFilter(dtDocGia, searchText, "HoTen", "SoDienThoai");
+            SearchHelper.ApplyFilter(dtDocGia, searchText, "MaDocGia", "TenDocGia", "SoDienThoai");
         }
 
         private void GridDocGia_SelectionChanged(object sender, EventArgs e)
@@ -168,19 +189,20 @@ namespace QuanLyMuonTraSach
             {
                 DataGridViewRow selectedRow = gridDocGia.SelectedRows[0];
 
-                // Lấy giá trị MaDocGia
-                object maDocGiaValue = selectedRow.Cells["MaDocGia"].Value;
-                if (maDocGiaValue != null && maDocGiaValue != DBNull.Value)
+                // Lấy giá trị Id (PK)
+                object idValue = selectedRow.Cells["Id"].Value;
+                if (idValue != null && idValue != DBNull.Value)
                 {
-                    selectedMaDocGia = Convert.ToInt32(maDocGiaValue);
+                    selectedId = Convert.ToInt32(idValue);
                 }
                 else
                 {
-                    selectedMaDocGia = null;
+                    selectedId = null;
                 }
 
                 // Đẩy dữ liệu lên textbox
-                txtHoTen.Text = selectedRow.Cells["HoTen"].Value?.ToString();
+                txtMaDocGia.Text = selectedRow.Cells["MaDocGia"].Value?.ToString();
+                txtHoTen.Text = selectedRow.Cells["TenDocGia"].Value?.ToString();
                 txtSoDienThoai.Text = selectedRow.Cells["SoDienThoai"].Value?.ToString();
 
                 // Cho phép Sửa/Xóa
@@ -197,6 +219,7 @@ namespace QuanLyMuonTraSach
             switch (state)
             {
                 case "default":
+                    txtMaDocGia.Enabled = false; 
                     txtHoTen.Enabled = false;
                     txtSoDienThoai.Enabled = false;
 
@@ -206,13 +229,15 @@ namespace QuanLyMuonTraSach
                     btnLuu.Enabled = false;
                     gridDocGia.Enabled = true;
 
+                    txtMaDocGia.Clear(); 
                     txtHoTen.Clear();
                     txtSoDienThoai.Clear();
                     gridDocGia.ClearSelection();
-                    selectedMaDocGia = null; // Reset ID đang chọn
+                    selectedId = null; // Reset Id
                     break;
 
                 case "add":
+                    txtMaDocGia.Enabled = true; 
                     txtHoTen.Enabled = true;
                     txtSoDienThoai.Enabled = true;
 
@@ -222,13 +247,15 @@ namespace QuanLyMuonTraSach
                     btnLuu.Enabled = true;
                     gridDocGia.Enabled = false;
 
+                    txtMaDocGia.Clear();
                     txtHoTen.Clear();
                     txtSoDienThoai.Clear();
-                    txtHoTen.Focus();
-                    selectedMaDocGia = null; // Đảm bảo không giữ ID cũ
+                    txtMaDocGia.Focus(); // Focus vào MaDocGia
+                    selectedId = null;
                     break;
 
                 case "edit":
+                    txtMaDocGia.Enabled = false;
                     txtHoTen.Enabled = true;
                     txtSoDienThoai.Enabled = true;
 
@@ -249,10 +276,19 @@ namespace QuanLyMuonTraSach
                 if (con.State == ConnectionState.Closed) con.Open();
 
                 dtDocGia = new DataTable();
-                string query = "SELECT MaDocGia, HoTen, SoDienThoai FROM DocGia";
+                string query = "SELECT Id, MaDocGia, TenDocGia, SoDienThoai FROM DocGia";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, con);
                 adapter.Fill(dtDocGia);
                 gridDocGia.DataSource = dtDocGia;
+
+                if (gridDocGia.Columns["Id"] != null)
+                {
+                    gridDocGia.Columns["Id"].Visible = false;
+                }
+                if (gridDocGia.Columns["TenDocGia"] != null)
+                {
+                    gridDocGia.Columns["TenDocGia"].HeaderText = "Tên Độc Giả";
+                }
             }
             catch (Exception ex)
             {
@@ -264,17 +300,18 @@ namespace QuanLyMuonTraSach
             }
         }
 
-        private void InsertDocGiaToDB(string hoTen, string soDienThoai)
+        private void InsertDocGiaToDB(string maDocGia, string tenDocGia, string soDienThoai)
         {
             try
             {
                 if (con.State == ConnectionState.Closed) con.Open();
 
-                // Sửa query (không có TrangThai)
-                string query = "INSERT INTO DocGia (HoTen, SoDienThoai) VALUES (@HoTen, @SoDienThoai)";
+                // Cập nhật query
+                string query = "INSERT INTO DocGia (MaDocGia, TenDocGia, SoDienThoai) VALUES (@MaDocGia, @TenDocGia, @SoDienThoai)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                cmd.Parameters.AddWithValue("@TenDocGia", tenDocGia); 
                 cmd.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
 
                 cmd.ExecuteNonQuery();
@@ -286,17 +323,18 @@ namespace QuanLyMuonTraSach
             }
         }
 
-        private void UpdateDocGiaInDB(int maDocGia, string hoTen, string soDienThoai)
+        private void UpdateDocGiaInDB(int id, string tenDocGia, string soDienThoai)
         {
             try
             {
                 if (con.State == ConnectionState.Closed) con.Open();
 
-                string query = "UPDATE DocGia SET HoTen = @HoTen, SoDienThoai = @SoDienThoai WHERE MaDocGia = @MaDocGia";
+                // Cập nhật query
+                string query = "UPDATE DocGia SET TenDocGia = @TenDocGia, SoDienThoai = @SoDienThoai WHERE Id = @Id";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                cmd.Parameters.AddWithValue("@TenDocGia", tenDocGia); 
                 cmd.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
-                cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                cmd.Parameters.AddWithValue("@Id", id); 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật độc giả thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -306,16 +344,17 @@ namespace QuanLyMuonTraSach
             }
         }
 
-        private void DeleteDocGiaFromDB(int maDocGia)
+        // Dùng id (int)
+        private void DeleteDocGiaFromDB(int id)
         {
             try
             {
                 if (con.State == ConnectionState.Closed) con.Open();
 
-                string query = "DELETE FROM DocGia WHERE MaDocGia = @MaDocGia";
+                string query = "DELETE FROM DocGia WHERE Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                cmd.Parameters.AddWithValue("@Id", id); 
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Xóa độc giả thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

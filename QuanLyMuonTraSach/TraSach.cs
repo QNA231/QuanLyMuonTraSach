@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
-using System.Drawing; 
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuanLyMuonTraSach
@@ -11,8 +11,8 @@ namespace QuanLyMuonTraSach
         SqlConnection con = new SqlConnection(Connection.ConString);
         private const decimal TIEN_PHAT_MOI_NGAY = 10000;
         private int? selectedMaPhieuMuon = null;
-        private int? selectedMaChiTiet = null; 
-        private int? selectedMaSach = null;
+        private int? selectedMaChiTiet = null;
+        private string selectedMaSach = null;
         private DateTime selectedNgayHenTra;
 
         public TraSach()
@@ -40,17 +40,11 @@ namespace QuanLyMuonTraSach
         /// </summary>
         private void cbDocGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Lấy mục đang được chọn.
-            // 'SelectedItem' sẽ là null nếu không có gì được chọn (ví dụ khi reset form)
             object selectedItem = cbDocGia.SelectedItem;
 
-            // Kiểm tra xem mục được chọn có phải là một 'DataRowView' hợp lệ không
             if (selectedItem is DataRowView selectedRow)
             {
-                // Nếu ĐÚNG:
-                // Lấy giá trị từ cột "MaDocGia" của DataRowView đó.
-                // Đây chính là mã độc giả thật sự trong CSDL.
-                int maDocGia = Convert.ToInt32(selectedRow["MaDocGia"]);
+                string maDocGia = selectedRow["MaDocGia"].ToString();
 
                 // Bây giờ maDocGia đã chắc chắn đúng, tải PhieuMuon
                 LoadPhieuMuonGrid(maDocGia);
@@ -61,7 +55,6 @@ namespace QuanLyMuonTraSach
             }
             else
             {
-                // Nếu SAI (ví dụ: selectedItem là null):
                 // Xóa sạch cả 2 grid
                 dgvPhieuMuon.DataSource = null;
                 dgvChiTiet.DataSource = null;
@@ -100,13 +93,13 @@ namespace QuanLyMuonTraSach
                     // Sách này đã trả rồi -> Vô hiệu hóa nút
                     btnXacNhanTra.Enabled = false;
                     selectedMaChiTiet = null;
-                    selectedMaSach = null;
+                    selectedMaSach = null; 
                 }
                 else
                 {
                     // Sách này CHƯA TRẢ -> Lấy ID và cho phép trả
                     selectedMaChiTiet = (int)row.Cells["MaChiTietPhieuMuon"].Value;
-                    selectedMaSach = (int)row.Cells["MaSach"].Value;
+                    selectedMaSach = row.Cells["MaSach"].Value?.ToString();
                     btnXacNhanTra.Enabled = true;
                 }
             }
@@ -130,7 +123,7 @@ namespace QuanLyMuonTraSach
         private void btnXacNhanTra_Click(object sender, EventArgs e)
         {
             // 1. Kiểm tra lần cuối
-            if (!selectedMaChiTiet.HasValue || !selectedMaSach.HasValue || !selectedMaPhieuMuon.HasValue)
+            if (!selectedMaChiTiet.HasValue || string.IsNullOrEmpty(selectedMaSach) || !selectedMaPhieuMuon.HasValue)
             {
                 MessageBox.Show("Vui lòng chọn một cuốn sách CHƯA TRẢ để thực hiện.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -158,7 +151,7 @@ namespace QuanLyMuonTraSach
                     cmdPhat.Parameters.AddWithValue("@MaChiTiet", selectedMaChiTiet.Value);
                     cmdPhat.Parameters.AddWithValue("@SoNgayTre", soNgayTre);
                     cmdPhat.Parameters.AddWithValue("@SoTienPhat", soTienPhat);
-                    cmdPhat.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuPhat.NotPaid); 
+                    cmdPhat.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuPhat.NotPaid);
                     cmdPhat.ExecuteNonQuery();
 
                     // Thông báo phạt
@@ -176,8 +169,8 @@ namespace QuanLyMuonTraSach
                 // 5. Cập nhật Sach (Set TrangThai = "Có sẵn")
                 string querySach = "UPDATE Sach SET TrangThai = @TrangThai WHERE MaSach = @MaSach";
                 SqlCommand cmdSach = new SqlCommand(querySach, con, transaction);
-                cmdSach.Parameters.AddWithValue("@TrangThai", TrangThaiSach.Available); 
-                cmdSach.Parameters.AddWithValue("@MaSach", selectedMaSach.Value);
+                cmdSach.Parameters.AddWithValue("@TrangThai", TrangThaiSach.Available);
+                cmdSach.Parameters.AddWithValue("@MaSach", selectedMaSach);
                 cmdSach.ExecuteNonQuery();
 
                 // 6. Kiểm tra xem phiếu này đã trả hết sách chưa
@@ -190,9 +183,9 @@ namespace QuanLyMuonTraSach
                 if (sachConLai == 0)
                 {
                     // Nếu đã trả hết -> Cập nhật TrangThaiPhieu
-                    string queryPhieuMuon = "UPDATE PhieuMuon SET TrangThaiPhieu = @TrangThai WHERE MaPhieuMuon = @MaPhieuMuon";
+                    string queryPhieuMuon = "UPDATE PhieuMuon SET TrangThai = @TrangThai WHERE MaPhieuMuon = @MaPhieuMuon";
                     SqlCommand cmdPhieuMuon = new SqlCommand(queryPhieuMuon, con, transaction);
-                    cmdPhieuMuon.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuMuon.Returned); 
+                    cmdPhieuMuon.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuMuon.Returned);
                     cmdPhieuMuon.Parameters.AddWithValue("@MaPhieuMuon", selectedMaPhieuMuon.Value);
                     cmdPhieuMuon.ExecuteNonQuery();
                 }
@@ -206,7 +199,7 @@ namespace QuanLyMuonTraSach
                 if (sachConLai == 0)
                 {
                     // Nếu phiếu đã xong, tải lại danh sách phiếu (phiếu đó sẽ biến mất)
-                    LoadPhieuMuonGrid((int)cbDocGia.SelectedValue);
+                    LoadPhieuMuonGrid(cbDocGia.SelectedValue.ToString());
                 }
                 btnXacNhanTra.Enabled = false;
 
@@ -240,13 +233,13 @@ namespace QuanLyMuonTraSach
                 {
                     c.Open();
                     DataTable dtDocGia = new DataTable();
-                    string query = "SELECT MaDocGia, HoTen FROM DocGia";
+                    string query = "SELECT MaDocGia, TenDocGia FROM DocGia";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
                     adapter.Fill(dtDocGia);
 
                     cbDocGia.DataSource = dtDocGia;
-                    cbDocGia.DisplayMember = "HoTen";
-                    cbDocGia.ValueMember = "MaDocGia";
+                    cbDocGia.DisplayMember = "TenDocGia";
+                    cbDocGia.ValueMember = "MaDocGia"; 
                     cbDocGia.SelectedIndex = -1;
                 }
             }
@@ -259,7 +252,7 @@ namespace QuanLyMuonTraSach
         /// <summary>
         /// Tải các phiếu CHƯA TRẢ (Đang mượn) của độc giả
         /// </summary>
-        private void LoadPhieuMuonGrid(int maDocGia)
+        private void LoadPhieuMuonGrid(string maDocGia)
         {
             try
             {
@@ -268,10 +261,10 @@ namespace QuanLyMuonTraSach
                     c.Open();
                     DataTable dt = new DataTable();
                     string query = "SELECT MaPhieuMuon, NgayMuon, NgayHenTra FROM PhieuMuon " +
-                                   "WHERE MaDocGia = @MaDocGia AND TrangThaiPhieu = @TrangThai";
+                                   "WHERE MaDocGia = @MaDocGia AND TrangThai = @TrangThai";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
-                    adapter.SelectCommand.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                    adapter.SelectCommand.Parameters.AddWithValue("@MaDocGia", maDocGia); 
                     adapter.SelectCommand.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuMuon.Borrowing);
                     adapter.Fill(dt);
                     dgvPhieuMuon.AutoGenerateColumns = false;

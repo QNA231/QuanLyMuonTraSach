@@ -186,7 +186,6 @@ D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\bin\Debug\zh-Hans\Microsoft
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.csproj.AssemblyReference.cache
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.DocGia.resources
-D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Home.resources
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.MuonSach.resources
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Properties.Resources.resources
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Sach.resources
@@ -199,3 +198,5 @@ D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach
 D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.exe.config
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.DashBoard.resources
 D:\C#\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Welcome.resources
+D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.DashBoard.resources
+D:\Quan\manh_btl\QuanLyMuonTraSach\QuanLyMuonTraSach\obj\Debug\QuanLyMuonTraSach.Welcome.resources

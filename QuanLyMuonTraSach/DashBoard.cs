@@ -85,7 +85,7 @@ namespace QuanLyMuonTraSach
                     c.Open();
                     DataTable dt = new DataTable();
                     string query = @"
-                        SELECT S.TenSach, D.HoTen, PM.NgayHenTra
+                        SELECT S.TenSach, D.TenDocGia, PM.NgayHenTra
                         FROM Sach S
                         JOIN ChiTietPhieuMuon CT ON S.MaSach = CT.MaSach
                         JOIN PhieuMuon PM ON CT.MaPhieuMuon = PM.MaPhieuMuon
@@ -116,7 +116,7 @@ namespace QuanLyMuonTraSach
                     c.Open();
                     DataTable dt = new DataTable();
                     string query = @"
-                        SELECT S.TenSach, D.HoTen, PM.NgayHenTra,
+                        SELECT S.TenSach, D.TenDocGia, PM.NgayHenTra,
                                DATEDIFF(day, PM.NgayHenTra, GETDATE()) AS SoNgayTre
                         FROM Sach S
                         JOIN ChiTietPhieuMuon CT ON S.MaSach = CT.MaSach
@@ -163,7 +163,7 @@ namespace QuanLyMuonTraSach
                     // 2. Tải Grid các khoản CHƯA THU
                     DataTable dt = new DataTable();
                     string queryGrid = @"
-                        SELECT PP.MaPhieuPhat, D.HoTen, S.TenSach, PP.SoNgayTre, PP.SoTienPhat
+                        SELECT PP.MaPhieuPhat, D.TenDocGia, S.TenSach, PP.SoNgayTre, PP.SoTienPhat
                         FROM PhieuPhat PP
                         JOIN ChiTietPhieuMuon CT ON PP.MaChiTietPhieuMuon = CT.MaChiTietPhieuMuon
                         JOIN Sach S ON CT.MaSach = S.MaSach

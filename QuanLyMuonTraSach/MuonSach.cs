@@ -51,7 +51,7 @@ namespace QuanLyMuonTraSach
                 return;
             }
 
-            int maSach = (int)cbTenSach.SelectedValue;
+            string maSach = cbTenSach.SelectedValue.ToString();
             string tenSach = cbTenSach.Text; // Lấy TenSach đang hiển thị
 
             // 2. Kiểm tra sách đã có trong giỏ hàng chưa
@@ -96,15 +96,16 @@ namespace QuanLyMuonTraSach
                 return;
             }
 
-            int maDocGia = (int)cbDocGia.SelectedValue;
+            string maDocGia = cbDocGia.SelectedValue.ToString();
             DateTime ngayMuon = DateTime.Now.Date;
             DateTime ngayHenTra = ngayMuon.AddDays(SO_NGAY_MUON_TOI_DA);
+
             string errorMessage = KiemTraDieuKienMuon(maDocGia, gioHang.Count);
 
             if (!string.IsNullOrEmpty(errorMessage))
             {
                 MessageBox.Show(errorMessage, "Không Thể Mượn Sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; 
+                return;
             }
 
             // --- 2. Bắt đầu GIAO DỊCH (TRANSACTION) ---
@@ -115,16 +116,16 @@ namespace QuanLyMuonTraSach
                 transaction = con.BeginTransaction();
 
                 // TẠO 1 PHIẾU MƯỢN (HEADER)
-                string queryPhieuMuon = "INSERT INTO PhieuMuon (NgayMuon, NgayHenTra, MaDocGia, TrangThaiPhieu) " +
-                                        "VALUES (@NgayMuon, @NgayHenTra, @MaDocGia, @TrangThaiPhieu); " +
+                string queryPhieuMuon = "INSERT INTO PhieuMuon (NgayMuon, NgayHenTra, MaDocGia, TrangThai) " +
+                                        "VALUES (@NgayMuon, @NgayHenTra, @MaDocGia, @TrangThai); " +
                                         "SELECT SCOPE_IDENTITY();";
 
                 SqlCommand cmdPhieuMuon = new SqlCommand(queryPhieuMuon, con, transaction);
                 cmdPhieuMuon.Parameters.AddWithValue("@NgayMuon", ngayMuon);
                 cmdPhieuMuon.Parameters.AddWithValue("@NgayHenTra", ngayHenTra);
-                cmdPhieuMuon.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                cmdPhieuMuon.Parameters.AddWithValue("@MaDocGia", maDocGia); 
 
-                cmdPhieuMuon.Parameters.AddWithValue("@TrangThaiPhieu", TrangThaiPhieuMuon.Borrowing);
+                cmdPhieuMuon.Parameters.AddWithValue("@TrangThai", TrangThaiPhieuMuon.Borrowing);
 
                 int maPhieuMuonMoi = Convert.ToInt32(cmdPhieuMuon.ExecuteScalar());
 
@@ -146,7 +147,6 @@ namespace QuanLyMuonTraSach
 
                     // Cập nhật Trạng Thái Sách
                     cmdUpdateSach.Parameters.Clear();
-
                     cmdUpdateSach.Parameters.AddWithValue("@TrangThai", TrangThaiSach.Borrow);
                     cmdUpdateSach.Parameters.AddWithValue("@MaSach", sach.MaSach);
                     cmdUpdateSach.ExecuteNonQuery();
@@ -206,12 +206,13 @@ namespace QuanLyMuonTraSach
                 {
                     c.Open();
                     DataTable dtDocGia = new DataTable();
-                    string query = "SELECT MaDocGia, HoTen FROM DocGia";
+
+                    string query = "SELECT MaDocGia, TenDocGia FROM DocGia";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
                     adapter.Fill(dtDocGia);
 
                     cbDocGia.DataSource = dtDocGia;
-                    cbDocGia.DisplayMember = "HoTen";
+                    cbDocGia.DisplayMember = "TenDocGia";
                     cbDocGia.ValueMember = "MaDocGia";
                 }
             }
@@ -230,19 +231,16 @@ namespace QuanLyMuonTraSach
                     c.Open();
                     DataTable dtSach = new DataTable();
 
-                    // THAY ĐỔI Ở ĐÂY: Dùng @TrangThai
                     string query = "SELECT MaSach, TenSach FROM Sach WHERE TrangThai = @TrangThai";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
-
-                    // THAY ĐỔI Ở ĐÂY: Thêm Parameter dùng class static
                     adapter.SelectCommand.Parameters.AddWithValue("@TrangThai", TrangThaiSach.Available);
 
                     adapter.Fill(dtSach);
 
                     cbTenSach.DataSource = dtSach;
                     cbTenSach.DisplayMember = "TenSach";
-                    cbTenSach.ValueMember = "MaSach";
+                    cbTenSach.ValueMember = "MaSach"; 
                 }
             }
             catch (Exception ex)
@@ -264,7 +262,8 @@ namespace QuanLyMuonTraSach
         /// Kiểm tra xem độc giả có đủ điều kiện mượn sách không.
         /// Trả về MỘT chuỗi lỗi nếu không hợp lệ, hoặc trả về string.Empty nếu hợp lệ.
         /// </summary>
-        private string KiemTraDieuKienMuon(int maDocGia, int soSachSapMuon)
+
+        private string KiemTraDieuKienMuon(string maDocGia, int soSachSapMuon)
         {
             // Quy định của thư viện
             const int MAX_SACH_DUOC_MUON = 5;
@@ -286,7 +285,7 @@ namespace QuanLyMuonTraSach
 
                     using (SqlCommand cmd = new SqlCommand(queryTreHan, c))
                     {
-                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia); 
                         int soSachTre = (int)cmd.ExecuteScalar();
                         if (soSachTre > 0)
                         {
@@ -304,7 +303,7 @@ namespace QuanLyMuonTraSach
 
                     using (SqlCommand cmd = new SqlCommand(queryPhat, c))
                     {
-                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
+                        cmd.Parameters.AddWithValue("@MaDocGia", maDocGia); 
                         cmd.Parameters.AddWithValue("@TrangThaiPhat", TrangThaiPhieuPhat.NotPaid);
                         int soNoPhat = (int)cmd.ExecuteScalar();
                         if (soNoPhat > 0)
