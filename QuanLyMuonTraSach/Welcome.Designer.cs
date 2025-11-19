@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(776, 45);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Chào mừng đến với Hệ thống";
+            this.label1.Text = "Chào mừng đến với hệ thống";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -85,7 +85,7 @@
             this.MaximizeBox = false;
             this.Name = "Welcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chào mừng - Hệ thống Quản lý Mượn Trả Sách";
+            this.Text = "Chào mừng - Hệ thống Quản lý mượn trả sách";
             this.ResumeLayout(false);
 
         }

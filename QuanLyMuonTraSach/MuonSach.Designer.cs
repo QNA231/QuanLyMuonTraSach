@@ -41,11 +41,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvGioSach = new System.Windows.Forms.DataGridView();
-            this.ColMaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnXacNhanMuon = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnXoaKhoiGio = new System.Windows.Forms.Button();
+            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -175,10 +175,10 @@
             this.dgvGioSach.BackgroundColor = System.Drawing.Color.White;
             this.dgvGioSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGioSach.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvGioSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvGioSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -187,8 +187,8 @@
             this.dgvGioSach.ColumnHeadersHeight = 30;
             this.dgvGioSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGioSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColMaSach,
-            this.ColTenSach});
+            this.MaSach,
+            this.TenSach});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,22 +209,6 @@
             this.dgvGioSach.Size = new System.Drawing.Size(644, 177);
             this.dgvGioSach.TabIndex = 0;
             // 
-            // ColMaSach
-            // 
-            this.ColMaSach.DataPropertyName = "MaSach";
-            this.ColMaSach.HeaderText = "Mã sách";
-            this.ColMaSach.Name = "ColMaSach";
-            this.ColMaSach.ReadOnly = true;
-            this.ColMaSach.Width = 150;
-            // 
-            // ColTenSach
-            // 
-            this.ColTenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColTenSach.DataPropertyName = "TenSach";
-            this.ColTenSach.HeaderText = "Tên sách";
-            this.ColTenSach.Name = "ColTenSach";
-            this.ColTenSach.ReadOnly = true;
-            // 
             // btnXacNhanMuon
             // 
             this.btnXacNhanMuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -238,7 +222,7 @@
             this.btnXacNhanMuon.Name = "btnXacNhanMuon";
             this.btnXacNhanMuon.Size = new System.Drawing.Size(192, 35);
             this.btnXacNhanMuon.TabIndex = 4;
-            this.btnXacNhanMuon.Text = "Xác nhận Mượn";
+            this.btnXacNhanMuon.Text = "Xác nhận mượn";
             this.btnXacNhanMuon.UseVisualStyleBackColor = false;
             // 
             // btnHuy
@@ -270,6 +254,22 @@
             this.btnXoaKhoiGio.Text = "Xóa khỏi giỏ";
             this.btnXoaKhoiGio.UseVisualStyleBackColor = false;
             // 
+            // MaSach
+            // 
+            this.MaSach.DataPropertyName = "MaSach";
+            this.MaSach.HeaderText = "Mã sách";
+            this.MaSach.Name = "MaSach";
+            this.MaSach.ReadOnly = true;
+            this.MaSach.Width = 150;
+            // 
+            // TenSach
+            // 
+            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSach.DataPropertyName = "TenSach";
+            this.TenSach.HeaderText = "Tên sách";
+            this.TenSach.Name = "TenSach";
+            this.TenSach.ReadOnly = true;
+            // 
             // MuonSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,7 +287,7 @@
             this.MaximizeBox = false;
             this.Name = "MuonSach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tạo Phiếu Mượn Sách";
+            this.Text = "Tạo phiếu mượn sách";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -312,9 +312,9 @@
         private System.Windows.Forms.DataGridView dgvGioSach;
         private System.Windows.Forms.Button btnXacNhanMuon;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColMaSach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTenSach;
         private System.Windows.Forms.ComboBox cbTenSach;
         private System.Windows.Forms.Button btnXoaKhoiGio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;
     }
 }

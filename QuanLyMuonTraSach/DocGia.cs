@@ -285,10 +285,10 @@ namespace QuanLyMuonTraSach
                 {
                     gridDocGia.Columns["Id"].Visible = false;
                 }
-                if (gridDocGia.Columns["TenDocGia"] != null)
-                {
-                    gridDocGia.Columns["TenDocGia"].HeaderText = "Tên Độc Giả";
-                }
+                //if (gridDocGia.Columns["TenDocGia"] != null)
+                //{
+                //    gridDocGia.Columns["TenDocGia"].HeaderText = "Tên độc giả";
+                //}
             }
             catch (Exception ex)
             {

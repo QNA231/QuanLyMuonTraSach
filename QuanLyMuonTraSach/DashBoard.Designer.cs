@@ -160,7 +160,7 @@
             this.groupBox2.Size = new System.Drawing.Size(756, 175);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sách Trễ Hạn (Chưa Trả)";
+            this.groupBox2.Text = "Sách Trễ Hạn (Chưa trả)";
             // 
             // dgvTreHan
             // 
@@ -170,10 +170,10 @@
             this.dgvTreHan.BackgroundColor = System.Drawing.Color.White;
             this.dgvTreHan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTreHan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvTreHan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvTreHan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -209,7 +209,7 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "TenSach";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Tên Sách";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Tên sách";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 300;
@@ -217,7 +217,7 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TenDocGia";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Độc Giả Mượn";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Độc giả mượn";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 200;
@@ -225,7 +225,7 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "NgayHenTra";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Ngày Hẹn Trả";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Ngày hẹn trả";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 150;
@@ -234,7 +234,7 @@
             // 
             this.SoNgayTre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoNgayTre.DataPropertyName = "SoNgayTre";
-            this.SoNgayTre.HeaderText = "Số Ngày Trễ";
+            this.SoNgayTre.HeaderText = "Số ngày trễ";
             this.SoNgayTre.Name = "SoNgayTre";
             this.SoNgayTre.ReadOnly = true;
             // 
@@ -250,7 +250,7 @@
             this.groupBox1.Size = new System.Drawing.Size(756, 175);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sách Đang Mượn";
+            this.groupBox1.Text = "Sách đang mượn";
             // 
             // dgvDangMuon
             // 
@@ -260,10 +260,10 @@
             this.dgvDangMuon.BackgroundColor = System.Drawing.Color.White;
             this.dgvDangMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDangMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDangMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDangMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -298,7 +298,7 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "TenSach";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Tên Sách";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Tên sách";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 350;
@@ -306,7 +306,7 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "TenDocGia";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Độc Giả Mượn";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Độc giả mượn";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 200;
@@ -315,7 +315,7 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "NgayHenTra";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Ngày Hẹn Trả";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Ngày hẹn trả";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
@@ -330,7 +330,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(768, 368);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tình hình Tiền Phạt";
+            this.tabPage2.Text = "Tình hình tiền phạt";
             // 
             // btnThuPhat
             // 
@@ -346,7 +346,7 @@
             this.btnThuPhat.Name = "btnThuPhat";
             this.btnThuPhat.Size = new System.Drawing.Size(169, 30);
             this.btnThuPhat.TabIndex = 2;
-            this.btnThuPhat.Text = "Xác nhận Thu (Đã chọn)";
+            this.btnThuPhat.Text = "Xác nhận thu (Đã chọn)";
             this.btnThuPhat.UseVisualStyleBackColor = false;
             // 
             // groupBox4
@@ -371,10 +371,10 @@
             this.dgvPhatChuaThu.BackgroundColor = System.Drawing.Color.White;
             this.dgvPhatChuaThu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhatChuaThu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvPhatChuaThu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPhatChuaThu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -412,7 +412,7 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "TenDocGia";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Tên Độc Giả";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Tên độc giả";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 200;
@@ -420,7 +420,7 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "TenSach";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Sách Trả Trễ";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Sách trả trễ";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 250;
@@ -428,7 +428,7 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "SoNgayTre";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Số Ngày Trễ";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Số ngày trễ";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
@@ -436,7 +436,7 @@
             // 
             this.SoTienPhat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoTienPhat.DataPropertyName = "SoTienPhat";
-            this.SoTienPhat.HeaderText = "Tiền Phạt";
+            this.SoTienPhat.HeaderText = "Tiền phạt";
             this.SoTienPhat.Name = "SoTienPhat";
             this.SoTienPhat.ReadOnly = true;
             // 
@@ -534,7 +534,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Trang Chủ - Quản Lý Mượn Trả Sách";
+            this.Text = "Trang chủ - Quản lý mượn trả sách";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);

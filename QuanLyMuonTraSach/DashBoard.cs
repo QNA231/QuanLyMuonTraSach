@@ -94,7 +94,6 @@ namespace QuanLyMuonTraSach
 
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
                     adapter.Fill(dt);
-                    dgvDangMuon.AutoGenerateColumns = false;
                     dgvDangMuon.DataSource = dt;
                 }
             }
@@ -126,7 +125,6 @@ namespace QuanLyMuonTraSach
 
                     SqlDataAdapter adapter = new SqlDataAdapter(query, c);
                     adapter.Fill(dt);
-                    dgvTreHan.AutoGenerateColumns = false;
                     dgvTreHan.DataSource = dt;
                 }
             }
@@ -174,7 +172,6 @@ namespace QuanLyMuonTraSach
                     SqlDataAdapter adapter = new SqlDataAdapter(queryGrid, c);
                     adapter.SelectCommand.Parameters.AddWithValue("@TrangThaiChuaThu", TrangThaiPhieuPhat.NotPaid);
                     adapter.Fill(dt);
-                    dgvPhatChuaThu.AutoGenerateColumns = false;
                     dgvPhatChuaThu.DataSource = dt;
                 }
             }

@@ -111,7 +111,7 @@
             this.gridDocGia.BackgroundColor = System.Drawing.Color.White;
             this.gridDocGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridDocGia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridDocGia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridDocGia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -305,11 +305,11 @@
             // 
             // TenDocGia
             // 
-            this.TenDocGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenDocGia.DataPropertyName = "TenDocGia";
             this.TenDocGia.HeaderText = "Tên độc giả";
             this.TenDocGia.Name = "TenDocGia";
             this.TenDocGia.ReadOnly = true;
+            this.TenDocGia.Width = 323;
             // 
             // SoDienThoai
             // 

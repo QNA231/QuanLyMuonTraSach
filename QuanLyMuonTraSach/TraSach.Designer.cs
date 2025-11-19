@@ -122,10 +122,10 @@
             this.dgvPhieuMuon.BackgroundColor = System.Drawing.Color.White;
             this.dgvPhieuMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhieuMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvPhieuMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPhieuMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -153,7 +153,7 @@
             this.dgvPhieuMuon.Name = "dgvPhieuMuon";
             this.dgvPhieuMuon.ReadOnly = true;
             this.dgvPhieuMuon.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.dgvPhieuMuon.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPhieuMuon.RowTemplate.Height = 30;
             this.dgvPhieuMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -163,7 +163,7 @@
             // MaPhieuMuon
             // 
             this.MaPhieuMuon.DataPropertyName = "MaPhieuMuon";
-            this.MaPhieuMuon.HeaderText = "Mã Phiếu Mượn";
+            this.MaPhieuMuon.HeaderText = "Mã phiếu mượn";
             this.MaPhieuMuon.Name = "MaPhieuMuon";
             this.MaPhieuMuon.ReadOnly = true;
             this.MaPhieuMuon.Width = 150;
@@ -171,7 +171,7 @@
             // NgayMuon
             // 
             this.NgayMuon.DataPropertyName = "NgayMuon";
-            this.NgayMuon.HeaderText = "Ngày Mượn";
+            this.NgayMuon.HeaderText = "Ngày mượn";
             this.NgayMuon.Name = "NgayMuon";
             this.NgayMuon.ReadOnly = true;
             this.NgayMuon.Width = 200;
@@ -180,7 +180,7 @@
             // 
             this.NgayHenTra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NgayHenTra.DataPropertyName = "NgayHenTra";
-            this.NgayHenTra.HeaderText = "Ngày Hẹn Trả";
+            this.NgayHenTra.HeaderText = "Ngày hẹn trả";
             this.NgayHenTra.Name = "NgayHenTra";
             this.NgayHenTra.ReadOnly = true;
             // 
@@ -204,10 +204,10 @@
             this.dgvChiTiet.BackgroundColor = System.Drawing.Color.White;
             this.dgvChiTiet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvChiTiet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvChiTiet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvChiTiet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -236,7 +236,7 @@
             this.dgvChiTiet.Name = "dgvChiTiet";
             this.dgvChiTiet.ReadOnly = true;
             this.dgvChiTiet.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.dgvChiTiet.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvChiTiet.RowTemplate.Height = 30;
             this.dgvChiTiet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -254,7 +254,7 @@
             // MaSach
             // 
             this.MaSach.DataPropertyName = "MaSach";
-            this.MaSach.HeaderText = "Mã Sách";
+            this.MaSach.HeaderText = "Mã sách";
             this.MaSach.Name = "MaSach";
             this.MaSach.ReadOnly = true;
             this.MaSach.Width = 150;
@@ -263,14 +263,14 @@
             // 
             this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenSach.DataPropertyName = "TenSach";
-            this.TenSach.HeaderText = "Tên Sách";
+            this.TenSach.HeaderText = "Tên sách";
             this.TenSach.Name = "TenSach";
             this.TenSach.ReadOnly = true;
             // 
             // NgayTra
             // 
             this.NgayTra.DataPropertyName = "NgayTra";
-            this.NgayTra.HeaderText = "Ngày Trả";
+            this.NgayTra.HeaderText = "Ngày trả";
             this.NgayTra.Name = "NgayTra";
             this.NgayTra.ReadOnly = true;
             this.NgayTra.Width = 200;
@@ -288,7 +288,7 @@
             this.btnXacNhanTra.Name = "btnXacNhanTra";
             this.btnXacNhanTra.Size = new System.Drawing.Size(256, 40);
             this.btnXacNhanTra.TabIndex = 3;
-            this.btnXacNhanTra.Text = "Xác nhận Trả (Sách đã chọn)";
+            this.btnXacNhanTra.Text = "Xác nhận trả (Sách đã chọn)";
             this.btnXacNhanTra.UseVisualStyleBackColor = false;
             // 
             // TraSach
@@ -306,7 +306,7 @@
             this.MaximizeBox = false;
             this.Name = "TraSach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nghiệp vụ Trả Sách";
+            this.Text = "Nghiệp vụ trả sách";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
